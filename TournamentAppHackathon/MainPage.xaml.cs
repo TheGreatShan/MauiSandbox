@@ -1,13 +1,12 @@
-﻿using TournamentAppHackathon.Tournaments;
+﻿using ABI.Microsoft.UI.Xaml.Controls.Primitives;
+using CommunityToolkit.Maui.Views;
+using TournamentAppHackathon.Tournaments;
 using TournamentAppHackathon.ViewModels;
 
 namespace TournamentAppHackathon;
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
-
-
     public MainPage()
     {
         InitializeComponent();
@@ -16,14 +15,7 @@ public partial class MainPage : ContentPage
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
-        count++;
-
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        this.ShowPopup(new CreationPopup());
     }
 
     public List<Tournament> GetTournaments()
